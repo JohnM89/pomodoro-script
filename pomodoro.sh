@@ -7,6 +7,10 @@ clear
 if [[ -z $1 ]]; then
   echo "No focus topic passed"
   #exit
+elif [[ "$1" == "--help" ]]; then
+  echo "usage: ./pomodoro.sh [task]"
+  echo "example: ./pomodoro.sh 'learn some bash'"
+  exit
 else
   echo "--- Focus on ($1)! ---"
 fi
@@ -52,8 +56,8 @@ for ((i = 0; i < study; i++)); do
   line1=$(printf "%${len1}s" | tr " " "$val")
   line2=$(printf "%${len2}s" | tr " " "$val2")
 
-  echo -ne "\033[2;0HTime left: $(date -u --date="@${time}" +%M:%S)"
-  echo -ne "\033[3;0H$line1$line2"
+  echo -ne "\033[2;0H\033[31mTime left: $(date -u --date="@${time}" +%M:%S)"
+  echo -ne "\033[3;0H\033[32m$line1\033[34m$line2\033[0m"
   sleep 1
 done
 
