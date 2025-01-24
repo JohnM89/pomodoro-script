@@ -1,2 +1,2 @@
 # Pomodoro-Organizer
-Simple organizer with a Pomodoro timer built in
+Simple pomodoro timer bash script
